@@ -1,0 +1,12 @@
+Name: Bryan Yang
+
+Plan for using Kali: 
+    I will try to mostly use Kali on my own laptop
+
+Current status of Kali install:
+    I downloaded the VM on my laptop and installed Kali on there. 
+    Burpsuite is working as well.
+        I had a hiccup with Burp, where I couldn't open the browser after
+        starting interception. I just restarted the VM and it worked. 
+
+
