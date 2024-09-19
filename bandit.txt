@@ -1,0 +1,48 @@
+Name: Bryan Yang
+
+Level 0 -> 1
+    I did 'ls', then 'cat readme' to see the contents of the readme file. 
+    PW: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+Level 1 -> 2
+    I did 'ls', then used the full path of the dash filename: 'cat ./-' 
+    PW: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+Level 2 -> 3
+    I did 'cat "spaces in this filename"'
+    PW: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+Level 3 -> 4
+    I cd'd into inhere, did 'ls- a', then did 'cat ...Hiding-From-You'
+    PW: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+Level 4 -> 5
+    cd into inhere. Did 'file ./*'(the files start with dashes) to find readable file. 
+    PW: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+Level 5 -> 6
+    Use 'find . -type f size 1033 ! -executable' to get file, with certain size, and not execuatable
+    Then 'exec file '{}' \;' to get the file data types of each file from the find cmd.
+    Then pipe that all into 'grep ASCII' to get the files that have ACII data types. 
+    Combined: find . -type f -size 1033c ! -executable -exec file '{}' \; | grep ASCII
+    PW: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+Level 6 -> 7
+    Did 'find / -type f -user bandit7 -group bandit6 -size 33c', found "/var/lib/dpkg/info/bandit7.password"
+    PW: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Level 7 -> 8
+    Did 'cat data.txt | grep millionth' since grep will get the the whole line
+    PW: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+Level 8 -> 9
+    man uniq shows that -u will only print unique lines. But apparantly only works if everything is sorted.  
+    Did sort data.txt | uniq -u
+    PW: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+Level 9 -> 10
+    'string data.txt' gets all human readable strings from data.txt
+    Pipe that into 'grep =' like so: 'strings data.txt | grep ='
+    PW: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+Level 10 -> 11
+    Did 'base64 -d data.txt' to decode
+    PW: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr  
+Level 11 -> 12
+    Need to find the right way to use 'tr'. This was kinda annoying to figure out.
+    'A-Za-z' is the first array of chars. Replace it with 'N-ZA-Mn-za-m'
+    so 'cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m''
+    PW: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+Got into level 12! Done.
+
