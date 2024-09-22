@@ -1,0 +1,34 @@
+Name: Bryan Yang
+
+===== DAYTIME SECTION =====
+
+    NIST server used: 132.163.97.4 ( WWV, Fort Collins, Colorado )
+
+    1. TCP handshake frames:
+        1	0.000000000	192.168.231.128	132.163.97.4	TCP	74	52604 → 13 [SYN] Seq=0 Win=32120 Len=0 MSS=1460 SACK_PERM TSval=1500831297 TSecr=0 WS=128
+        2	0.039272104	132.163.97.4	192.168.231.128	TCP	60	13 → 52604 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+        3	0.040191305	192.168.231.128	132.163.97.4	TCP	54	52604 → 13 [ACK] Seq=1 Ack=1 Win=32120 Len=0
+    2. Port # used by client: 52604
+    3. Client has many services that can receive info from internet. 
+       daytime needs to know which one to hand the info back to.
+    4. Frame with time: 
+        4	0.063902523	132.163.97.4	192.168.231.128	DAYTIME	105	DAYTIME Response
+    5. SYN = synchronized seq number
+       ACK = acknowledgement
+    6. Client initiated the closing. 
+        5	0.064258731	192.168.231.128	132.163.97.4	TCP	54	52604 → 13 [FIN, ACK] Seq=1 Ack=53 Win=32068 Len=0
+        Frame 5 shows source as client's IP. And the message info has the [FIN]
+
+===== HTTP SECTION =====
+    1. Just one? There is never a [FIN] that closes the first one.
+    2.  Frame 5 has the GET request: 
+        5	0.016274421	192.168.231.128	172.233.221.124	HTTP	408	GET /index.html HTTP/1.1 
+    3. Frame 11 has the GET request for the file jeff-square-colorado.jpg:
+        11	0.094617906	192.168.231.128	172.233.221.124	HTTP	381	GET /jeff-square-colorado.jpg HTTP/1.1 
+
+===== QUESTIONS =====
+ - What is a [PSH] and why are there so many of them?
+ - What does "TCP segment of a reassembled PDU" mean?
+ - If a packet is not being acknowledged by my computer, it won't ever
+   show up on my wireshark, correct? I can only see when a packet I sent
+   doesn't get acknolwedged? 
