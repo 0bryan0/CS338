@@ -113,7 +113,8 @@ Convert each block to hex:
     6963 652e
 
 Every 2 digits is a hex value corresponding with ASCII
-(I got this from Leo's question and Jeff's hint in his answer to Leo. Thanks to them)
+(I was able to do this because of Leo's question and Jeff's hint in his answer to Leo. Thanks to them)
+    
     Final Message: 
         Dear Bob, check this out. 
         https://www.surveillancewatch.io/ 
