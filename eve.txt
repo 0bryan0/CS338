@@ -1,0 +1,97 @@
+NAME: Bryan Yang
+
+======================== Diffie Hellman ========================
+
+    Alice and Bob agree on g = 7 and p = 97.
+    Alice sent Bob the number 53.
+    Bob sent Alice the number 82.
+    
+    Let A = 53, B = 82
+    X,Y < p so, X,Y < 97
+
+    Alice sent 53 to Bob, so 53 = g**X mod 97
+    Bob sent 82 to Alice, so 82 = g**Y mod 97 to Alice.
+ 
+    To find value of 'X' in 53 = g**X mod 97 
+    using a brute force for loop:
+
+            for i in range(98):
+                if (7**i) % 97 == 53:
+                    print(i)
+
+        Result: X = 22
+
+    To find value of 'Y' in 82 = g**Y mod 97 
+    using a brute force for loop:
+
+            for i in range(98):
+                if (7**i) % 97 == 82:
+                    print(i)
+
+        Result: Y = 41
+
+    ********
+    These 2 for loops will take a long time if p is really large
+    and will basically "fail" since it would take forever to not only
+    find the possiblities of X,Y, but filtering through them to find the 
+    exact integers as well. 
+    ********
+
+    Secret Key = B**X mod p which should equal A**Y mod p.
+        B**X mod p = 82**22 % 97 = 65
+        A**Y mod p = 53**41 % 97 = 65
+        Nice. 
+        
+
+    ******** SECRET KEY = 65 ********
+
+============================== RSA ==============================
+
+
+Bob's pub key: (e_b, n_b) = (13, 162991)
+
+Ciphertext *FROM* ALICE *TO* BOB: 
+    [17645, 100861, 96754, 160977, 120780, 90338, 
+    130962, 74096, 128123, 25052, 119569, 39404, 
+    6697, 82550, 126667, 151824, 80067, 75272, 
+    72641, 43884, 5579, 29857, 33449, 46274, 59283, 
+    109287, 22623, 84902, 6161, 109039, 75094, 56614, 
+    13649, 120780, 133707, 66992, 128221]
+
+Alice:
+    Pick two prime numbers pA and qA and compute nA = pAqA.
+
+    Alice picks, 2 prime numbers p_a, q_a. 
+    n_a = p_a * q_a
+
+    lambda_na = lcm(p_a - 1, q_a - 1)
+
+    1 < e_a < lambda_na, AND gcd(e_a, lambda_na) = 1
+
+    Find d_a such that e_a*d_a mod lambda_na = 1
+
+    Alice's pub key: (e_a, n_a)
+     - sec key: (d_a, n_a)
+    
+Brute Force Strategey: 
+We know that the exncryption that Alice does before sending is: 
+    x**(e_b) % n_b, for every char x in the message.
+
+We also know that the max size of a message is "determined"
+by n_b. So we can brute force every number from 0 to n_b and
+use the encryption on each number to see if it matches with the 
+encryption like so:
+
+    for cipher_char in ciphertext:
+        for x in range(162991):
+            possible_encrpytion = x**(13) % 162991
+            if possible_encrpytion == cipher_char:
+                print(f"Possible plaintext: {x}")
+                plaintext.append(x)
+                break
+
+This would take a long time the larger n_b or n_a. Exponentially longer.
+So this is not feasible with a large p and q. 
+
+     
+
