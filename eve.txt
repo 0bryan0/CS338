@@ -104,4 +104,7 @@ Decrypted plaintext:
     26979, 25902]
 
      
-
+Alice's encoding isn't as secure since the message is 
+split up into each letter and each letter is encrypted. So
+repeating/same letters in the plaintext are also the same in
+the ciphertext. 
