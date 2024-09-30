@@ -91,7 +91,17 @@ encryption like so:
                 break
 
 This would take a long time the larger n_b or n_a. Exponentially longer.
-So this is not feasible with a large p and q. 
+So this is not feasible with a large p and q. '
+
+Decrypted plaintext:
+    [17509, 24946, 8258, 28514, 11296, 
+    25448, 25955, 27424, 29800, 26995, 
+    8303, 30068, 11808, 26740, 29808, 
+    29498, 12079, 30583, 30510, 29557, 
+    29302, 25961, 27756, 24942, 25445, 
+    30561, 29795, 26670, 26991, 12064, 
+    21349, 25888, 31073, 11296, 16748, 
+    26979, 25902]
 
      
 
