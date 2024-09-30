@@ -45,8 +45,8 @@ NAME: Bryan Yang
 
     ******** SECRET KEY = 65 ********
 
-============================== RSA ==============================
 
+============================== RSA ==============================
 
 Bob's pub key: (e_b, n_b) = (13, 162991)
 
@@ -103,8 +103,23 @@ Decrypted plaintext:
     21349, 25888, 31073, 11296, 16748, 
     26979, 25902]
 
+ENCODING:
+Convert each block to hex:
+    4465 6172 2042 6f62 2c20 6368 6563 
+    6b20 7468 6973 206f 7574 2e20 6874 
+    7470 733a 2f2f 7777 772e 7375 7276 
+    6569 6c6c 616e 6365 7761 7463 682e 
+    696f 2f20 5365 6520 7961 2c20 416c 
+    6963 652e
+
+Every 2 digits is a hex value corresponding with ASCII
+(I got this from Leo's question and Jeff's hint in his answer to Leo. Thanks to them)
+    Final Message: 
+        Dear Bob, check this out. 
+        https://www.surveillancewatch.io/ 
+        See ya, Alice.
      
 Alice's encoding isn't as secure since the message is 
-split up into each letter and each letter is encrypted. So
-repeating/same letters in the plaintext are also the same in
+split up into chunks of 2 letters and each chunk is encrypted. So
+repeating/same 2 letter combos in the plaintext are also the same in
 the ciphertext. 
