@@ -1,0 +1,77 @@
+NAME: Bryan Yang
+
+Alice, Bob, Evem MAL have access to: 
+ - AES: AES(K, M), where K = key, M = msg 
+ - Diffie-Hellman: procudeure to share a secret key in public 
+ - SHA-256: H(M)
+ - Private/Public key pairs: (P_a, S_a), (P_b, S_b) 
+
+
+================== Simple communication scenarios ==================
+
+1.  Alice and Bob can use the Diffie Hellman procudeure to share
+    a secret key for AES, K. After sharing K, they can en/decrypt 
+    using AES. 
+     -  The sole goal is to prevent anyone else from being able 
+        to read the message. So the simplest thing is to 
+        encrpyt the message. Symmetric encrpytion is viable with
+        Diffie-Hellman. 
+
+2.  Alice can hash the message M through SHA-256, and add that 
+    to the end of the unhashed message: M || H(M)
+     -  Bob can check the message he recieved, M'. and put it 
+        through SHA-256 to see if it matches H(M). If changes 
+        were made to M, H(M') will probably be vastly different 
+        from H(M). 
+
+3.  Alice and Bob use Diffie-Hellman to exchange a secret key, K. 
+    Alice hashes her message M to get the digest H(M). Then Alice 
+    can use a digital signature to verify that the message is 
+    actually from Alice. Alices does this by using their secret 
+    key to encrypt the digest: E(S_a, H(M)). Then Alice encrypts
+    M || E(S_a, H(M)) --> AES(M || E(S_a, H(M)), K). 
+     -  Eve cannot read the message as it is encrpyted. Bob can
+        decrypt the entire message(fairly quickly as it is AES) 
+        and then use Alice's public key to decrypt the signature
+        to ensure authenticity. Thus, public key encryption is
+        used only where it is needed to save time/computation. 
+
+
+================ Questions about breaking security ================
+
+4.  (a) Alice could say her private key was compromised. 
+        This means Bob or maybe Mal used Alice's private key to 
+        get a signature that matches the fake message. 
+            -   This is not impossible and more investigation 
+                would need to happen about how the key was  
+                compromised. How secure a private key is depends
+                on how secure it was kept.
+    (b) Alice could claim Bob attatched a fake C, a C'. 
+        This is nearly impossible, as the Sig would not match 
+        if C' was hashed. 
+    (c) Alice could claim Bob attatched a fake C and a fake Sig.
+        This is also pretty close to impossible, as Bob would need
+        to either have Alice's public key(scenario 1) or reverse
+        engineer the encrpytion using the public key which we know
+        is really hard to do. Or Bob would need to find a collision
+        in the hash function, but this would be not only hard to do
+        in general, but also the result of the collision would
+        have to weirdly line up to be a similar format to C. 
+
+5.  Sig_CA = E(S_CA, H("bob.com" || P_B))
+
+6.  Alice needs to get Bob to make a digital signature to make sure
+    the public key from thecertificate matches up/can decrpyt the
+    ciphertext from "Bob's" secret key. 
+        Alice can tell Bob to make a signautre for a specified 
+        message M. So Bob would send E(S_b,H(M)). 
+        Alice then decrpyts this using the public key from the
+        certificate and sees if it truly equals H(M).
+
+7.  (a) Mal could just pretend to be the CA 
+        (i.e AITM between CA and Bob) and send a fake Cert_B.
+        If Alice does not verify the signature, then Alice 
+        would think she is talking to Bob.
+    (b) Mal could somehow get a hold of the secret key of the
+        CA, meaning they can give out certificates to anyone.
+
