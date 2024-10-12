@@ -1,0 +1,191 @@
+E((n,e), M) = M^e mod n  <-- can be done fast
+Given (n,e), find d so that e*d mod lambda(n) = 1 <-- can't
+
+===========================================
++ In-class exam, Friday, October 11
+- General philosophy on in-class exams
+    - Stuff I want you to have in your head
+        - YES "base64 encodes/rewrites arbitrary byte sequences
+            as sequences of ASCII characters"
+        - MAYBE "to encode, take each 3-byte chunk and turn it into
+            4 6-bit chunks, and look those chunks up on a table"
+        - NO "the letter Z represents the six bits 011001"
+    - I'm happy if no more than 5 people are still working at
+        the end of the exam
+    - No tricks or intentionally obscure questions (at least I try)
+    - Facts, yes. Also some "why" (e.g., why do we use certificates
+        at all? why is it easier to secure an asymmetric key pair
+        than a symmetric key?)
+    - Fair game
+        - Readings
+        - Videos
+        - Class notes
+        - Labs
+        - Assignments
+    - Thinking about how to prioritize study
+        - How important is this particular topic? Important enough
+            for a 60-70-minute exam?
+        - What did I emphasize in homework?
+        - What did I emphasize in class?
+        - What did I emphasize in the videos?
+
+- Symmetric encryption
+    - Key, plaintext, ciphertext
+    - Be aware of the AES competition
+        - AES, formrly knokwn as Ringdael
+    - Block ciphers
+        - 
+    - Block cipher modes
+        - Electronic Code book, cipher block cipher, output feedback, ctr 
+    - Names of a few important block ciphers: AES, DES, TripleDES, TwoFish...
+        - 
+    - Stream ciphers
+        - encrypt each byte as it comes
+    - Names of a couple important stream ciphers: ChaCha, RC4,...
+        - chacha20 poly1305, rc4 is broke, aes-ctr
+
+- Diffie-Hellman key exchange
+    - What's the purpose?
+    - Steps: what do Alice and Bob do, in what order?
+        - Alice sends g, p
+         - Alice b
+    - Why can't Eve get the key even if she sees every packet?
+    - Steps: what do Alice, Mal, and Bob send in an adversary-in-the-middle attack?
+        are Alice & Bob fooled?
+            - 
+
+- RSA
+    - Of what does a key pair consist?
+        - public (n, e) private (n, d)
+    - How do you create a key pair?
+        - p,q
+        -p*q = n
+        - lamda_n = lcm(p-1, q-1) 
+        - gcd(e, lamda_n) = 1
+        - find e*d mod lamda(n) = 1
+
+
+    - What mathematical relationships do the various numbers
+        (n, e, d, p, q) have?
+    - How do you encrypt/decrypt?
+        Alice to Bob. Alice uses Bob's pub key.
+        - Enc: M^e_b mod n_b
+        - Dec: M'^d_b mod n_b
+    - What are the limits on the size (in bits or bytes)
+        of the messages that you can encrypt using
+        a given RSA key? 
+        - length of message should less than modulus
+
+- Public-key/asymmetric encryption in general
+    - Notation I'll use: public key P, secret key S,
+        encrypt/decrypt using the function E
+        E(P, M) or E(S, M) for message M
+    - What relationship is there between E, P, S?
+    - How can a person use E and S to sign something? 
+     - E(M, S)
+
+- IP
+    - What does "IP" stand for?
+    - What's the purpose of IP?
+    - What are the main items in an IP header?
+    - What's an IP address?
+    - What's the most obvious difference between IPv4 and IPv6?
+
+- TCP
+    - What does "TCP" stand for?
+        - Transmission Control Protocol
+    - What's the purpose of TCP?
+        - tcp handshake, makes sure packets are in order/not missing, reliabile
+    - What's a port?
+        - 
+    - What are the main items in a TCP header?
+        - 4: source/dest ip, sourse dest/port
+    - If I want to send a server the payload "Hi there!", what stuff
+        gets prepended (or appended?) to the payload?
+         - 
+    - What does ACK mean?
+        receipt of connections 
+    - What are the steps in a TCP handshake?
+        What particular items of data are being agreed upon during
+        a TCP handshake?
+        - sequence numbers
+        - acknowledgement number
+        - port number
+
+- HTTP
+    - What does "HTTP" stand for?
+    - What's the purpose of HTTP?
+        - 
+    - What does a typical HTTP GET request look like?
+         - GET HTTP 1./ 
+            host
+            user-agent 
+            connection
+            accept-language
+    - What does a typical HTTP response look like?
+        - HTTP status code(200 OK)
+        Date
+        server
+        last modified
+        content type 
+        content length
+    - What are "headers" in the HTTP context?
+        (and be clear about the difference between our two
+         uses of the word "header")
+          - key value pair of name:value
+
+    - What are some commonly-included headers?
+
+- TLS
+    - What does "TLS" stand for?
+        - 
+    - What is the relationship between TLS and SSL?
+    - What's the purpose of TLS?
+    - What information is exchanged and negotiated during a
+        TLS handshake?
+        keys, encrption algs, hash funcs
+
+- HTTPS
+    - What does "HTTPS" stand for?
+    - How is HTTPS related to HTTP and TLS?
+
+- Cryptographic hashes
+    - What do they do?
+        - data integrity, evey bit of the msg is the same
+    - What are their essential properties?
+         - collision resistane
+         - pre image resistance(not reversible)
+         - determinitics
+         - input sensitive
+         - fast
+    - Names of a few important ones: 
+        - SHA-256, SHA-2, SHA-1, MD5, Blake 
+    - List a few applications of hashes 
+        - data integerity check 
+        - PW storage 
+        - digital signature 
+        - proof of work with bitcoin 
+        - file identification 
+    - What are MACs (and what does "MAC" stand for?)?
+        - message auth codes, 
+    - How are MACs different from hashes?
+        - works simarly to hash, but also has encryption
+
+- base64
+    - What is it?
+        - encoding, convert binary data to string of ascii data
+    - How does it work? (But see above for stuff you don't have to memorize)
+        - 3 bytes chunks(24 bits)
+            - divided again into 6 bit chunks
+                - each 6 bit unit converted to printable ascii char
+                - padding added if needed to final chunk
+- Miscellaneous
+    - What are ASN.1, DER, PEM?
+        ASN.1 is a format for Cryptographic stuff like certificates
+            DER is a way to encode ASN.1
+        Privacy of fo
+    - What do git add, status, commit, push, and pull do?
+    - What does Wireshark do?
+        - packet sniffing 
+    - What's Kali Linux for?
+        - 
