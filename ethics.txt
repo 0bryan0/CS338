@@ -1,0 +1,56 @@
+NAME: Bryan Yang
+
+SCENARIO #2 (Beerz wants to sell data)
+
+Starting from a narrow, specific point of view, I think there are some ethical 
+questions involving the Beerz’s leadership. When hiring me, the CTO pitched to 
+me that Beerz was dedicated to privacy. Was this the truth? When hiring someone, 
+I think there should be as much transparency as possible between both parties. 
+The thing that sold me on Beerz was the CTO’s claim that they “protect users’ 
+data…and [they] discard it when [they’re] done with it”. Based on the CTO’s 
+worried xpression, it seems like her statement was definitely true for her, but 
+it doesn’t seem to be true for the CEO. Which points to another issue: the CEO 
+and CTO seem to not be on the same page. Obviously, the CTO had opinions about 
+the CEO’s direction, but did not say anything during the meeting. I think a major 
+part of upholding any sort of ethics is making sure that people feel comfortable 
+speaking up about ethics. Multiple perspectives on ethics are not just a 
+second-thought feature to increase creativity–it is essential, in order to make 
+up for the limited perspective a single human has. It seems Beerz’s isn’t taking 
+communication seriously enough. The CEO did not even seem to get the takeaway 
+from my presentation. I do not think it is easy to uphold ethics in that environment, 
+or even have a conversation about it. Additionally, another ethical question is 
+weighing the fact that I love my job and co-workers(mostly) and the fact that the 
+CEO’s suggestions seem like a dangerous direction for the company to go. I have to 
+make a decision to risk the joy and positivity of my workplace environment. Acting 
+ethically may come at a cost for me and other people around me. 
+
+The first obvious stakeholders are the users of Beerz. First and foremost, they 
+have the right to transparency. So Beerz must inform customers and clients if 
+they follow through with the change in data privacy policy. Beerz also needs 
+consent from users to give up their previous data if that part of the meeting 
+discussion also becomes a reality. Users have a right to not allow their previous 
+data to be sold since that was never part of the initial terms and conditions. 
+Users also have the right to say no to the selling of their data(which may mean 
+they no longer get to use Beerz). I think from an ethical standpoint, forcing 
+users to have to choose between using an app they like and their data being sold 
+is not great. However, if more information could be given about how exactly data 
+is being anonymized, and what other precautions(if any) would take place, maybe 
+I could be a little less worried. In section 1.6 of the  ACM Code of Ethics and Professional Conduct, respecting privacy is highlighted, but selling of data is 
+not explicitly frowned upon. Just that anonymization and protection has to be good. 
+That said, the overall themes in the document do point to some concern about the 
+CEO’s motivations. I think the CEO is definitely not consistent with membership in 
+the ACM, in ethical principles, professional responsibilities, or leadership 
+principles. 
+
+I think the first thing I would do is talk to the CTO again. She has more 
+experience and power within the company so she may be convinced to talk to the 
+CEO again and have him reconsider. I don’t think it is the end of the world if 
+the CEO says they will go through with selling the data. The drastic thing would 
+be to quit. I think staying on board and helping to make sure that anonymization 
+and privacy protection are maximized would be more helpful. Helping with the communication with the users about what exactly is happening and being really 
+clear about how their data is being sold would be a high priority as well. If 
+the CEO becomes more and more money hungry, I think more conversations with the 
+other leaders and employees would be good and at that point, it may be good to 
+look at job applications. 
+
+
