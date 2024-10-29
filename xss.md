@@ -29,5 +29,14 @@
     Some browsers apparantly use SQL instead of directories so there may be more than just that one directory I found. 
 
 #### PART 2: XSS
- - a. 
+ - a.
+    Moriarty made a post early than me(he has the 2nd, and 3rd post).
+    The post included some scripts.
+    I visited his post later and his scripts ran on my browser.
+    So he was able to affect people in the future(relative to when he wrote his post)
+ - b. I belive Javascript can fetch cookies, so you could grab people's cookies
+ - c. Users could be redirected to a malicious website
+ - d. Server can blacklist certain patterns of text that look like scripts.
+      Browsers can stop cookies from being sent cross-site, or at least warn that it is happening. 
+    
     
